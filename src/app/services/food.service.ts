@@ -20,14 +20,6 @@ export class FoodService {
     ));
   }
 
-  getFoodById(foodId: string): Food {
-    const food = this.getAll().find(food => food.id === foodId);
-    if (!food) {
-      throw new Error(`Food with id ${foodId} not found`);
-    }
-    return food;  
-  }
-
   getAllTags(): Tag[] {
     return sample_tags;
   }
@@ -37,5 +29,13 @@ export class FoodService {
       return this.getAll();
     } 
     return this.getAll().filter(food => food.tags?.includes(tag));
+  }
+
+  getFoodById(foodId: string): Food {
+    const food = this.getAll().find(food => food.id === foodId);
+    if (!food) {
+      throw new Error(`Food with id ${foodId} not found`);
+    }
+    return food;  
   }
 }
