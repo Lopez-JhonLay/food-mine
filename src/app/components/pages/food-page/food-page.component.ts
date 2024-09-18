@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from '../../../shared/models/food';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { FoodService } from '../../../services/food.service';
 import { StarRatingComponent } from '../../partials/star-rating/star-rating.component';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-food-page',
@@ -16,8 +17,10 @@ export class FoodPageComponent implements OnInit {
   food!: Food;
 
   constructor(
-    private activatedRoute: ActivatedRoute, 
-    private foodService: FoodService
+    private activatedRoute: ActivatedRoute,
+    private router: Router, 
+    private foodService: FoodService,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -26,5 +29,10 @@ export class FoodPageComponent implements OnInit {
         this.food = this.foodService.getFoodById(params.id);
       }
     })
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.food);
+    this.router.navigateByUrl('/cart-page');
   }
 }
