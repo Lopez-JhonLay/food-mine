@@ -44,7 +44,6 @@ export class CartService {
   }
 
   getCartObservable(): Observable<Cart> {
-    console.log(this.cartSuject.asObservable());
     return this.cartSuject.asObservable();
   }
 
