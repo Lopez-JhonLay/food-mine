@@ -47,6 +47,10 @@ export class CartService {
     return this.cartSuject.asObservable();
   }
 
+  getCart(): Cart {
+    return this.cartSuject.value;
+  }
+
   private setCartToLocalStorage(): void {
     this.cart.totalPrice = this.cart.items
       .reduce((prevSum, currentItem) => prevSum + currentItem.price, 0);
