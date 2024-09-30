@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TitleComponent } from '../../partials/title/title.component';
 import { TextInputComponent } from '../../partials/text-input/text-input.component';
 import { OrderItemListComponent } from '../../partials/order-item-list/order-item-list.component';
+import { MapComponent } from '../../partials/map/map.component';
 
 @Component({
   selector: 'app-checkout-page',
@@ -15,7 +16,8 @@ import { OrderItemListComponent } from '../../partials/order-item-list/order-ite
     TitleComponent, 
     ReactiveFormsModule,
     TextInputComponent,
-    OrderItemListComponent
+    OrderItemListComponent,
+    MapComponent
   ],
   templateUrl: './checkout-page.component.html',
   styleUrl: './checkout-page.component.css'
